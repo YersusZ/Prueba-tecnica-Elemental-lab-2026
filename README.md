@@ -1,4 +1,4 @@
-# Prueba Técnica — Elemental Lab 2026
+# Prueba Técnica Elemental Lab 2026
 ## API REST de Agendamiento de Citas
 
 Sistema de agendamiento interno con reglas de negocio para manejo de citas, clientes VIP y validación de disponibilidad.
@@ -113,10 +113,10 @@ Retorna los bloques de tiempo ya ocupados o bloqueados para esa fecha, incluyend
 No se permiten citas que toquen el rango de **13:00 a 14:00**.
 
 ```
-✅ 11:00 - 12:30  →  permitido
-❌ 12:30 - 13:15  →  rechazado (toca el almuerzo)
-❌ 13:30 - 14:30  →  rechazado (dentro del almuerzo)
-✅ 14:00 - 15:00  →  permitido
+ 11:00 - 12:30  →  permitido
+ 12:30 - 13:15  →  rechazado (toca el almuerzo)
+ 13:30 - 14:30  →  rechazado (dentro del almuerzo)
+  14:00 - 15:00  →  permitido
 ```
 
 ### Buffer de Cliente VIP
@@ -132,8 +132,8 @@ Cliente VIP agenda 10:00 por 60 min
 Los martes después de las **16:00** el sistema está en mantenimiento. No se permiten citas que empiecen o terminen después de esa hora.
 
 ```
-❌ Martes 15:30 por 60 min  →  rechazado (termina a las 16:30)
-✅ Martes 14:00 por 60 min  →  permitido (termina a las 15:00)
+ Martes 15:30 por 60 min  →  rechazado (termina a las 16:30)
+ Martes 14:00 por 60 min  →  permitido (termina a las 15:00)
 ```
 
 ### Anti-Solapamiento
