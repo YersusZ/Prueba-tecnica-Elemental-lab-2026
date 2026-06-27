@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-x6z4blx8-wbx=z(lr2vmv(yc4p&&ez9^9y6tyexbjs_w!63w+a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'Prueba_tecnica',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -115,3 +118,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Prueba Tecnica API',
+    'DESCRIPTION': 'Api para la prueba tecnica de Elemental Lab',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}

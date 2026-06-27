@@ -16,7 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views import AppointmentAPIView, AppointmentAvailabilityAPIView, CustomerAPIView
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+    path('api/customers/', CustomerAPIView.as_view({'get': 'list', 'post': 'create'}), name='customer-list'),
+    path('api/customers/<int:pk>/', CustomerAPIView.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='customer-detail'),
+    path('api/appointments/', AppointmentAPIView.as_view({'get': 'list', 'post': 'create'}), name='appointment-list'),
+    path('api/appointments/availability/<slug:date>/', AppointmentAvailabilityAPIView.as_view({'get': 'availability'}), name='appointment-availability'),
 ]
+
